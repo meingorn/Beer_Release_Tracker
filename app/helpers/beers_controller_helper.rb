@@ -1,0 +1,2 @@
+module BeersControllerHelper
+end
