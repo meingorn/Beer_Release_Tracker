@@ -1,6 +1,7 @@
-class SessionController < ApplicationController
+class SessionsController < ApplicationController
 
 	def new
+		@account = Account.new
 	end
 
 	def create
