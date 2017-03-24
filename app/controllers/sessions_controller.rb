@@ -1,13 +1,17 @@
 class SessionController < ApplicationController
 
 	def new
-		@account = Account.new
 	end
 
 	def create
-		@account = Account.find_by(username: user_params(:username), password: user_params(:password))
-		if @account && @account.authenticate(params)
-			session[:account_id]
+		@account = Account.find_by(username: params[:account][:username])
+		if @account && @account.authenticate(params [:account][:password])
+			session[:account_id] = account.id
+			redirect_to account_path(@account)
+		else
+			flash[:error] = "your username or password is not valid"
+			redirect_to signin_path
+		end
 
 	end
 
