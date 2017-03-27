@@ -1,7 +1,6 @@
 <h1>All Beers</h1>
 <ul>
-  <%= @beers.each do |beer| %>
-    <%= beer.name %>
-    <%= beer.description %>
+  <% @beers.each do |beer| %>
+    <%= link_to beer.name, beer_path(beer) %>
   <% end %>
 </ul>
